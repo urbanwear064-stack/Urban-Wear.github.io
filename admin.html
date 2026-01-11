@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+
+<style>
+body{font-family:Arial;padding:20px}
+input,select,button{width:100%;padding:10px;margin:8px 0}
+button{background:#ff3f6c;color:white;border:none;border-radius:20px}
+</style>
+</head>
+
+<body>
+
+<h2>Admin – Add Product</h2>
+
+<input id="name" placeholder="Product Name">
+<input id="price" type="number" placeholder="Price">
+<input id="img" placeholder="Direct Image URL">
+<select id="category">
+  <option value="shirts">Shirts</option>
+  <option value="tshirts">T-Shirts</option>
+  <option value="shoes">Shoes</option>
+</select>
+
+<button onclick="addProduct()">Add Product</button>
+
+<script>
+function addProduct(){
+ let products=JSON.parse(localStorage.getItem("products"))||[];
+ products.push({
+   name:name.value,
+   price:price.value,
+   img:img.value,
+   category:category.value
+ });
+ localStorage.setItem("products",JSON.stringify(products));
+ alert("Product added successfully ✅");
+}
+</script>
+
+</body>
+</html>
